@@ -1,0 +1,13 @@
+version: '3'
+services:
+  nginx:
+#    image: 172.18.202.50/demo-project/nginx
+    image: docker.mklimg.com/library/nginx
+    ports:
+      - "205:80"
+#    volumes: 
+#      - "/tmp/html:/usr/share/nginx/html"
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager] 
